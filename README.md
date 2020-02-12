@@ -19,11 +19,9 @@ Additionally, a conda environment file is included to recreate the environment.
 
 ## Database Structure
 
-Inline-style:
 ![](images/sparkifydb_erd.png)
 
 Database: sparkifydb
-
 
 ## Usage
 
