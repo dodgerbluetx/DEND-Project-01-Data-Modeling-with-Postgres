@@ -37,17 +37,17 @@ contains JSON formatted data about the individual sings themselves.
 
 ![](images/sparkifydb_erd.png)
 
-Database: sparkifydb
+Database: **sparkifydb**
 
 Facts Table
-* songplays - records in log data associated with song plays i.e. records with
+* **songplays** - records in log data associated with song plays i.e. records with
 page `NextSong`
 
 Dimension Tables:
-* artists - artists in the music database
-* songs - songs in music database
-* time - timestamps of records in songplays broken down inno specific units
-* users - users in the app
+* **artists** - artists in the music database
+* **songs** - songs in music database
+* **time** - timestamps of records in songplays broken down inno specific units
+* **users** - users in the app
 
 ## Usage
 
@@ -58,10 +58,10 @@ To get started, first run the following script:
 The `create_tables.py` script will execute several queries located in the
 `sql_queries.py` script to create the database and tables.
 
-Then, run the following ETL pipeline script to parse the log files and load
+Then, run the following ETL pipeline script to parse the data files and load
 sample data into the tables:
 
 `etl.py`
 
-Finally, to test that the data load was successful, run the `etl.ipynb` notebook
-in Jupyter Notebooks to confirm the database is prpoerly setup and contains data.
+Finally, to test that the data load was successful, run the `test.ipynb` notebook
+in Jupyter Notebooks to confirm the database is properly setup and contains data.
