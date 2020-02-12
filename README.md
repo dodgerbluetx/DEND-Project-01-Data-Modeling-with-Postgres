@@ -40,14 +40,14 @@ contains JSON formatted data about the individual sings themselves.
 Database: sparkifydb
 
 Facts Table
-..* songplays - records in log data associated with song plays i.e. records with
+* songplays - records in log data associated with song plays i.e. records with
 page `NextSong`
 
 Dimension Tables:
-..* artists - artists in the music database
-..* songs - songs in music database
-..* time - timestamps of records in songplays broken down inno specific units
-..* users - users in the app
+* artists - artists in the music database
+* songs - songs in music database
+* time - timestamps of records in songplays broken down inno specific units
+* users - users in the app
 
 ## Usage
 
