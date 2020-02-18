@@ -11,7 +11,7 @@ time_table_drop = "DROP TABLE IF EXISTS time"
 songplay_table_create = ("""
     CREATE TABLE IF NOT EXISTS songplays
     (
-        songplay_id int,
+        songplay_id int NOT NULL,
         start_time bigint,
         user_id int,
         level varchar,
@@ -27,7 +27,7 @@ songplay_table_create = ("""
 user_table_create = ("""
     CREATE TABLE IF NOT EXISTS users
     (
-        user_id int,
+        user_id int NOT NULL,
         first_name varchar,
         last_name varchar,
         gender varchar,
@@ -39,7 +39,7 @@ user_table_create = ("""
 song_table_create = ("""
     CREATE TABLE IF NOT EXISTS songs
     (
-        song_id varchar,
+        song_id varchar NOT NULL,
         title varchar,
         artist_id varchar,
         year int,
@@ -51,7 +51,7 @@ song_table_create = ("""
 artist_table_create = ("""
     CREATE TABLE IF NOT EXISTS artists
     (
-        artist_id varchar,
+        artist_id varchar NOT NULL,
         name varchar,
         location varchar,
         latitude numeric,
@@ -63,7 +63,7 @@ artist_table_create = ("""
 time_table_create = ("""
     CREATE TABLE IF NOT EXISTS time
     (
-        start_time timestamp,
+        start_time timestamp NOT NULL,
         hour int,
         day int,
         week int,
@@ -90,7 +90,7 @@ user_table_insert = ("""
     (user_id, first_name, last_name, gender, level)
     VALUES
     (%s, %s, %s, %s, %s)
-    ON CONFLICT (user_id) DO NOTHING
+    ON CONFLICT (user_id) DO UPDATE SET level = EXCLUDED.level
 """)
 
 song_table_insert = ("""
@@ -123,7 +123,7 @@ time_table_insert = ("""
 song_select = ("""
     SELECT s.song_id, a.artist_id
     FROM songs s
-    JOIN artists a ON s.artist_id = a.artist_id
+    LEFT JOIN artists a ON s.artist_id = a.artist_id
     WHERE s.title = %s
     AND a.name = %s
     AND s.duration = %s
